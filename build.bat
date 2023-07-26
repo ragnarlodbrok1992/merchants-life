@@ -16,6 +16,7 @@ REM /link /verbose:lib^
  /Fe:"merchants-life"^
  %glad_main_file%^
  src/main.cpp^
+ src/shader.cpp^
  /I%header_file_glfw3% /I%header_file_glad%^
  OpenGL32.lib User32.lib gdi32.lib Shell32.lib %lib_file_glfw%^
 

@@ -2,8 +2,12 @@
 #include <glad\glad.h>
 #include <GLFW\glfw3.h>
 
+// Local includes
+#include "shader.hpp"
+
 // Functions forward declarations
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 void processInput(GLFWwindow* window);
 
 // Engine constants
@@ -38,8 +42,10 @@ int main(int argc, char* argv[]) {
     return -1;
   }
 
-  // Render loop
+  // Setting callback functions
+  glfwSetKeyCallback(window, key_callback);
 
+  // Render loop
   while (!glfwWindowShouldClose(window)) {
     // Processing input at start of every frame
     processInput(window);
@@ -73,3 +79,15 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
   glViewport(0, 0, width, height);
 }
 
+// Key callback function
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+
+  if (action == GLFW_PRESS) {
+    switch (key) {
+      // Exit engine
+      case GLFW_KEY_ESCAPE:
+        glfwSetWindowShouldClose(window, GLFW_TRUE);
+        break;
+    }
+  }
+}
