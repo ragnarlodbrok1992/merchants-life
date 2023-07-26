@@ -1,0 +1,8 @@
+# Ignoring some files - mostly build stuff
+
+*.exe
+*.obj
+*.dll
+*.ilk
+*.pdb
+
