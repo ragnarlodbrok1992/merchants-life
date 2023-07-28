@@ -17,6 +17,14 @@ const unsigned int SCREEN_HEIGHT = 768;
 int main(int argc, char* argv[]) {
   printf("Merchants Life - development version.\n");
 
+  /*
+  // DEBUG checks
+  Shader shader;
+
+  // DEBUG: early return
+  return 0;
+  */
+
   // GLFW - initialize and configure
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
