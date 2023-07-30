@@ -1,10 +1,6 @@
 #ifndef _H_SHADER
 #define _H_SHADER
 
-// Filepaths are in relation to executable @TODO fix that in some way
-// And are loaded at runtime
-constexpr char* default_vertex_shader_filepath   = "src/shaders/default_vertex_shader.vert";
-constexpr char* default_fragment_shader_filepath = "src/shaders/default_fragment_shader.frag";
 
 class Shader {
   public:
@@ -13,9 +9,9 @@ class Shader {
 
     // Constructors
     // Rule of zero, three, five? Don't know yet @TODO
-    Shader() = delete; // Default constructor - deleted
-    Shader(const char* vertex_shader_filepath   = default_vertex_shader_filepath,
-           const char* fragment_shader_filepath = default_fragment_shader_filepath);
+    Shader(); // Default values are in shader.cpp
+    Shader(const char* vertex_shader_filepath,
+           const char* fragment_shader_filepath);
 
     // Loading shaders
     // void load(const char* vsfp, const char* fsfp);

@@ -17,10 +17,11 @@ const unsigned int SCREEN_HEIGHT = 768;
 int main(int argc, char* argv[]) {
   printf("Merchants Life - development version.\n");
 
-  /*
   // DEBUG checks
-  Shader shader;
+  Shader* shader1 = new Shader();
+  Shader* shader2 = new Shader("Twojstary vertex shader", "Twojstarty fragment shader");
 
+  /*
   // DEBUG: early return
   return 0;
   */
