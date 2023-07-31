@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
 
   // DEBUG checks
   Shader* shader1 = new Shader();
-  Shader* shader2 = new Shader("Twojstary vertex shader", "Twojstarty fragment shader");
+  // Shader* shader2 = new Shader("Twojstary vertex shader", "Twojstarty fragment shader");
 
   /*
   // DEBUG: early return

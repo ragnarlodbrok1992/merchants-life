@@ -13,6 +13,7 @@ REM /link /verbose:lib^
 %compiler_dir% /EHsc /Zi /MDd^
  /DEBUG:FULL^
  /INCREMENTAL:NO^
+ /std:c++17^
  /Fe:"merchants-life"^
  %glad_main_file%^
  src/main.cpp^
