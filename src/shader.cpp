@@ -30,18 +30,56 @@ Shader::Shader(const char* vertex_shader_filepath,
 }
 
 Shader::Shader() {
-  /* DEBUG PRINTS
-  printf("Constructoooor!\n");
-  printf("Vertex shader filepath: %s, fragment shader filepath: %s\n",
-      default_vertex_shader_filepath,
-      default_fragment_shader_filepath);
-      */
+  FILE* vertex_shader_file;
+  FILE* fragment_shader_file;
+  size_t vertex_shader_file_size, fragment_shader_file_size;
 
-  FILE vertex_shader_file, fragment_shader_file;
-  
-  // Checking filesizes for vertex and fragment shader
-  printf("Vertex shader file_size: %lld\n", std::filesystem::file_size(default_vertex_shader_filepath));
-  printf("Fragment shader file_size: %lld\n", std::filesystem::file_size(default_fragment_shader_filepath));
+  vertex_shader_file_size   = std::filesystem::file_size(default_vertex_shader_filepath); 
+  fragment_shader_file_size = std::filesystem::file_size(default_fragment_shader_filepath);
 
+  // Let's malloc that stuff
+  // char vertex_shader_code_buffer[vertex_shader_file_size];
+  // char fragment_shader_code_buffer[fragment_shader_file_size];
+  char* vertex_shader_code_buffer = (char*)   malloc(vertex_shader_file_size * sizeof(char) + 1);
+  char* fragment_shader_code_buffer = (char*) malloc(fragment_shader_file_size * sizeof(char) + 1);
+  // Read files into buffers
+  //
+  vertex_shader_file = fopen(default_vertex_shader_filepath, "rb");
+  fragment_shader_file = fopen(default_fragment_shader_filepath, "rb");
+
+  if (vertex_shader_file != 0) { // Success
+    fread(vertex_shader_code_buffer, 1, vertex_shader_file_size, vertex_shader_file);
+    vertex_shader_code_buffer[vertex_shader_file_size] = '\0';
+  } else {
+    printf("There has been problem with vertex shader!\n");
+  }
+
+  if (fragment_shader_file != 0) { // Success
+    fread(fragment_shader_code_buffer, 1, fragment_shader_file_size, fragment_shader_file);
+    fragment_shader_code_buffer[fragment_shader_file_size] = '\0';
+  } else {
+    printf("There has been problem with fragment shader!\n");
+  }
+
+  // DEBUG stuff
+  // ShaderType DUPA = COUNT;
+  // checkCompileErrors(1, DUPA);
+
+  // Freeing stuff
+  free(vertex_shader_code_buffer);
+  free(fragment_shader_code_buffer);
 }
 
+void Shader::checkCompileErrors(unsigned int shader, ShaderType type) {
+  switch (type) {
+    case VERTEX:
+
+      break;
+    case FRAGMENT:
+
+      break;
+    default:
+      printf("  ERROR: We shouldn't be here! %s %d\n", __FILE__, __LINE__);
+      break;
+  }
+}

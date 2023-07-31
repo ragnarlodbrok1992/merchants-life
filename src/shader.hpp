@@ -1,11 +1,19 @@
 #ifndef _H_SHADER
 #define _H_SHADER
 
+enum ShaderType {
+  VERTEX,
+  FRAGMENT,
+  COUNT // keep last for count of shader_types in our engine
+};
+
 
 class Shader {
   public:
     // I think that any shader programs requires two shaders at least - fragment and vertex
     unsigned int program_ID; // Shaders are differenciate using program ID's
+    char* vertex_code;
+    char* fragment_code;
 
     // Constructors
     // Rule of zero, three, five? Don't know yet @TODO
@@ -27,7 +35,7 @@ class Shader {
   private:
     // Compiler errors checker - OpenGL does this silently and if you don't ask
     // it doesn't bother you with details about why is your shader fucked up
-    void checkCompilerErrors(unsigned int shader, const char* type);
+    void checkCompileErrors(unsigned int shader, ShaderType type);
 };
 
 #endif /* _H_SHADER */
