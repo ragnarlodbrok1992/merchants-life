@@ -3,7 +3,8 @@
 #include <GLFW\glfw3.h>
 
 // Local includes
-#include "shader.hpp"
+#include "gl\shader.hpp"
+#include "entities\iso_tile.hpp"
 
 // Functions forward declarations
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -54,9 +55,11 @@ int main(int argc, char* argv[]) {
     // Processing input at start of every frame
     processInput(window);
 
-    // Render
+    // Render - clearing screen
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+
+    // Render iso tiles
 
     // GLFW - swap buffers and poll IO events
     glfwSwapBuffers(window);
