@@ -17,15 +17,6 @@ const unsigned int SCREEN_HEIGHT = 768;
 int main(int argc, char* argv[]) {
   printf("Merchants Life - development version.\n");
 
-  // DEBUG checks
-  Shader* shader1 = new Shader();
-  // Shader* shader2 = new Shader("Twojstary vertex shader", "Twojstarty fragment shader");
-
-  /*
-  // DEBUG: early return
-  return 0;
-  */
-
   // GLFW - initialize and configure
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -50,6 +41,10 @@ int main(int argc, char* argv[]) {
 
     return -1;
   }
+
+  // DEBUG checks
+  Shader* shader1 = new Shader();
+  // Shader* shader2 = new Shader("Twojstary vertex shader", "Twojstarty fragment shader");
 
   // Setting callback functions
   glfwSetKeyCallback(window, key_callback);

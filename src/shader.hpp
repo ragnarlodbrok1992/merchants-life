@@ -1,12 +1,19 @@
 #ifndef _H_SHADER
 #define _H_SHADER
 
+#include <string.h>
+#include <stdio.h>
+
+
 enum ShaderType {
   VERTEX,
   FRAGMENT,
-  COUNT // keep last for count of shader_types in our engine
+  PROGRAM, // enum for checking errors
+  COUNT // keep last for count of shader_types in our engine - 2
 };
 
+// Enum utility functions
+void get_shader_type_name(ShaderType& type, char* filled_text, size_t size);
 
 class Shader {
   public:
