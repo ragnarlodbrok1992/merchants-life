@@ -22,13 +22,7 @@ constexpr char* default_fragment_shader_filepath = "src/shaders/default_fragment
 
 Shader::Shader(const char* vertex_shader_filepath,
                const char* fragment_shader_filepath) {
-  /* DEBUG PRINTS
-  printf("Constructoooor!\n");
-  printf("Vertex shader filepath: %s, fragment shader filepath: %s\n",
-      vertex_shader_filepath,
-      fragment_shader_filepath);
-      */
-
+  //@TODO: implement
 }
 
 Shader::Shader() {
@@ -100,6 +94,22 @@ Shader::Shader() {
   // Freeing stuff
   free(vertex_shader_code_buffer);
   free(fragment_shader_code_buffer);
+}
+
+void Shader::use() {
+  glUseProgram(program_ID);
+}
+
+void Shader::setBool(const char* name, bool value) {
+  glUniform1i(glGetUniformLocation(program_ID, name), (int) value);
+}
+
+void Shader::setInt(const char* name, int value) {
+  glUniform1i(glGetUniformLocation(program_ID, name), value);
+}
+
+void Shader::setFloat(const char* name, float value) {
+  glUniform1f(glGetUniformLocation(program_ID, name), value);
 }
 
 // Enum utility functions
