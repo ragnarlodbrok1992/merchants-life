@@ -46,6 +46,7 @@ int main(int argc, char* argv[]) {
   // DEBUG checks
   Shader* shader1 = new Shader();
   // Shader* shader2 = new Shader("Twojstary vertex shader", "Twojstarty fragment shader");
+  IsoTile* iso_tile_1 = new IsoTile(0, 0);
 
   // Setting callback functions
   glfwSetKeyCallback(window, key_callback);
