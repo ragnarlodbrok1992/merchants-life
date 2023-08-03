@@ -36,5 +36,8 @@ IsoTile::IsoTile(int _x, int _y) : x(_x), y(_y) {
     vertices[a + 9] = bottom_right[a];
   }
 
+  // Initializing buffers
 }
+
+
 
